@@ -63,6 +63,7 @@ export default function ProductDetailCard({
             likes={likes}
             dislikes={dislikes}
             dispatch={dispatch}
+            variant="detail"
           />
           <ToggleButton
             selected={bookmarked}
