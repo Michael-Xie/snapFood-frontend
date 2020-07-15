@@ -89,7 +89,7 @@ const LikedCounter = ({
             selectedIcon="thumb-up"
             unselectedIcon="thumb-up-outline"
             handleSelected={() => {
-              dispatch({ type: 'UPDATE_LIKE', id: postId, liked: !liked });
+              dispatch({ type: 'UPDATE_LIKE', id: postId, liked, disliked: notLiked });
               // setLiked(!liked);
               toggleLikePost(true);
               // loadData();
@@ -101,7 +101,7 @@ const LikedCounter = ({
             selectedIcon="thumb-down"
             unselectedIcon="thumb-down-outline"
             handleSelected={() => {
-              dispatch({ type: 'UPDATE_DISLIKE', id: postId, disliked: !notLiked });
+              dispatch({ type: 'UPDATE_DISLIKE', id: postId, liked, disliked: notLiked });
               // setNotLiked(!notLiked);
               toggleLikePost(false);
               // loadData();
@@ -117,7 +117,7 @@ const LikedCounter = ({
               selectedIcon="thumb-up"
               unselectedIcon="thumb-up-outline"
               handleSelected={() => {
-                dispatch({ type: 'UPDATE_LIKE', id: postId, liked: !liked });
+                dispatch({ type: 'UPDATE_LIKE', id: postId, liked, disliked: notLiked });
 
                 // setLiked(!liked);
                 toggleLikePost(true);
@@ -133,7 +133,7 @@ const LikedCounter = ({
               selectedIcon="thumb-down"
               unselectedIcon="thumb-down-outline"
               handleSelected={() => {
-                dispatch({ type: 'UPDATE_DISLIKE', id: postId, disliked: !notLiked });
+                dispatch({ type: 'UPDATE_DISLIKE', id: postId, liked, disliked: notLiked });
 
                 // setNotLiked(!notLiked);
                 toggleLikePost(false);
