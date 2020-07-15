@@ -19,6 +19,10 @@ export default function ProductDetailCard({
   posterStatus = 'regular',
   tags = [],
   imageUrl,
+  userLikedPost,
+  userDislikedPost,
+  postId,
+  dispatch,
 }) {
   const [bookmarked, setBookmarked] = React.useState(false);
   const [showMapModal, setShowMapModal] = React.useState(false);
@@ -52,7 +56,14 @@ export default function ProductDetailCard({
         />
 
         <Card.Actions>
-          <LikedCounter likes={likes} dislikes={dislikes} variant="detail" />
+          <LikedCounter
+            initialLiked={userLikedPost}
+            initialDisliked={userDislikedPost}
+            postId={postId}
+            likes={likes}
+            dislikes={dislikes}
+            dispatch={dispatch}
+          />
           <ToggleButton
             selected={bookmarked}
             selectedIcon="bookmark"

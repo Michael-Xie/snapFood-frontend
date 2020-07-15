@@ -12,7 +12,6 @@ const LikedCounter = ({
   initialDisliked,
   postId,
   userId = '5eead9d6d34bf31f58a86904',
-  loadData,
   dispatch,
 }) => {
   // const [liked, setLiked] = useState(initialLiked);

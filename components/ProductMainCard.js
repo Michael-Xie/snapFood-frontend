@@ -101,7 +101,6 @@ export default function ProductMainCard(props) {
               postId={postId}
               likes={likes}
               dislikes={dislikes}
-              loadData={loadData}
               dispatch={dispatch}
             />
             <ToggleButton
