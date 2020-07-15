@@ -13,11 +13,6 @@ const findPostIndex = (state, id) => {
 const updatePostWhenLiked = (posts, id, liked, disliked) => {
   const postIndex = findPostIndex(posts, id);
   const post = posts[postIndex];
-  console.log('before update like post', post);
-
-  // const prevUserLikedPost = post.userLikedPost;
-  // const prevUserDislikePost = post.userDislikedPost;
-
   if (liked) {
     post.userLikedPost = false;
     post.likes -= 1;
@@ -31,28 +26,6 @@ const updatePostWhenLiked = (posts, id, liked, disliked) => {
     post.likes += 1;
   }
 
-  // // user cannot like and dislike at the same time, and adjustment needed if that's the case
-  // if (post.userLikedPost) {
-  //   //   const prevUserDislikedPost = post.userDislikedPost;
-  //   post.userDislikedPost = false;
-  //   //   if (prevUserDislikedPost && !post.userDislikedPost) {
-  //   //     post.dislikes--;
-  //   //   }
-  //   //   if (!prevUserDislikedPost && post.userDislikedPost) {
-  //   //     post.dislikes++;
-  //   //   }
-  // }
-  // // to keep the counter accurate, need to account for previous action from user
-  // // case 1: user liked (true) then to neutral (false), then need to decrease likes by 1 to match neutral status
-  // if (prevUserLikedPost && !post.userLikedPost) {
-  //   post.likes--;
-  // }
-  // // case 2: user neutral(false) then to liked (true), then need to increase likes by 1
-  // if (!prevUserLikedPost && post.userLikedPost) {
-  //   post.likes++;
-  // }
-  console.log('after update like post', post);
-
   posts.splice(postIndex, 1, post);
   return [...posts];
 };
@@ -60,9 +33,6 @@ const updatePostWhenLiked = (posts, id, liked, disliked) => {
 const updatePostWhenDisliked = (posts, id, liked, disliked) => {
   const postIndex = findPostIndex(posts, id);
   const post = posts[postIndex];
-  console.log('before update dislike post', post);
-  // const prevUserDislikedPost = post.userDislikedPost;
-  // post.userDislikedPost = disliked;
 
   if (disliked) {
     post.userDislikedPost = false;
@@ -76,27 +46,6 @@ const updatePostWhenDisliked = (posts, id, liked, disliked) => {
     post.userDislikedPost = true;
     post.dislikes += 1;
   }
-  // // user cannot like and dislike at the same time, and adjustment needed if that's the case
-  // if (post.userDislikedPost) {
-  //   //   const prevUserLikedPost = post.userLikedPost;
-  //   post.userLikedPost = false;
-  //   //   if (prevUserLikedPost && !post.userLikedPost) {
-  //   //     post.likes--;
-  //   //   }
-  //   //   if (!prevUserLikedPost && post.userLikedPost) {
-  //   //     post.likes++;
-  //   //   }
-  // }
-  // // to keep the counter accurate, need to account for previous action from user
-  // // case 1: user disliked (true) then to neutral (false), then need to decrease dislikes by 1 to match neutral status (prev +1, now -1)
-  // if (prevUserDislikedPost && !post.userDislikedPost) {
-  //   post.dislikes--;
-  // }
-  // // case 2: user neutral(false) then to liked (true), then need to increase dislikes by 1
-  // if (!prevUserDislikedPost && post.userDislikedPost) {
-  //   post.dislikes++;
-  // }
-  console.log('after update dislike post', post);
 
   posts.splice(postIndex, 1, post);
   return [...posts];
